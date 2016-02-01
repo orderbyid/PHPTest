@@ -1,0 +1,31 @@
+{% extends 'ProntoProntoBundle::base.html.twig' %}
+{% block title %}ProntoProdotti - crea prodotto{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/Product/new.css') }}">
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('/js/Product/new.js') }}"></script>
+    <script src="{{ asset('/js/moment.js') }}"></script>
+{% endblock %}
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.file) }}
+    <label>Tags</label>
+    <div class="tags" data-prototype="{{ form_widget(form.tags.vars.prototype)|e }}">
+        {% for tag in form.tags %}
+        {{ form_row(tag.name) }}
+        {% endfor %}
+    </div>
+    {{ form_row(form.save) }}
+    {{ form_end(form) }}
+    {% if editBtn %}
+        <form action="{{ path('productDelete',{'id': product.id}) }}">
+            <button type="submit">Elimina</button>
+        </form>
+    {% endif %}
+{% endblock %}

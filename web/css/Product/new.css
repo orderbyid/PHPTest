@@ -1,0 +1,48 @@
+.aRemoveTag{
+    display: inline;
+    margin-left: 5px;
+    text-decoration: none;
+    color:red;
+    font-weight: bold;
+}
+input{
+    width:200px;
+    margin-bottom: 8px;
+    margin-left: 15px;
+}
+textarea{
+    width: 400px;
+    height: 100px;
+    margin:0px 0px 15px 15px;
+}
+label{
+    display:inline-block;
+    width:80px;
+    text-align: right;
+    font-weight: bold;
+}
+label,textarea{
+    display:inline-block;
+    vertical-align:top;
+}
+.divTag div{
+    display:inline-block;
+}
+.tags{
+    display:inline-block;
+}
+.tags input{
+    margin-bottom: 3px;
+}
+.add_tag_link{
+    margin-left: 17px;
+}
+button{
+    margin:4px;
+}
+li{
+    color:red;
+}
+.inline div{
+    display:inline;
+}

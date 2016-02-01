@@ -1,0 +1,54 @@
+{% extends 'ProntoProntoBundle::base.html.twig' %}
+{% block title %}ProntoProdotti - Lista{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/Product/list.css') }}">
+{% endblock %}
+{% block content %}
+        <a href="{{ path('productCreate') }}">Crea nuovo prodotto</a>
+    <table id="tbProduct" class="display">
+        <thead><tr>
+                <th>ID</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>img</th>
+                <th>Prodotto</th>
+                <th>Data creazione</th>
+                <th>Descrizione</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td style="text-align: center">
+                    <a href="{{ path('productEdit',{'id': product.id}) }}" class="aEditProd">✎</a>
+                </td>
+                <td style="text-align: center">
+                    <a href="{{ path('productDelete',{'id': product.id}) }}" class="aEditProd">x</a>
+                </td>
+                <td>
+                    {% if product.webPath is not null %}
+                    <a target="_blank" href="{{ asset(product.webPath) }}">
+                        <img src="{{ asset(product.webPath) }}" height="40" width="30">
+                    </a>
+                    {% endif %}
+                </td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.created|date('d/m/y h:i') }}</td>
+                <td>{{ product.description }}</td>
+                <td>
+                    {% for tag in product.tags %}
+                    <li>{{ (tag.name) }}</li>
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('/js/Product/list.js') }}"></script>
+{% endblock %}

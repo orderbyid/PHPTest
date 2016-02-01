@@ -1,0 +1,12 @@
+productCreate:
+    path:      /product/create
+    defaults: { _controller: ProntoProntoBundle:Product:create }
+productList:
+    path:      /product/list
+    defaults: { _controller: ProntoProntoBundle:Product:list }
+productEdit:
+    path:      /product/{id}/edit
+    defaults: { _controller: ProntoProntoBundle:Product:edit }
+productDelete:
+    path:      /product/{id}/delete
+    defaults: { _controller: ProntoProntoBundle:Product:delete }

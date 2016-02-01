@@ -1,0 +1,3 @@
+pronto_pronto:
+    resource: "@ProntoProntoBundle/Resources/config/routing.yml"
+    prefix:   /
